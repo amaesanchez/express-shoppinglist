@@ -2,7 +2,7 @@
 
 const express = require("express");
 
-const { NotFoundError, BadRequestError } = require("./expressError");
+const { BadRequestError } = require("./expressError");
 
 const router = express.Router();
 
@@ -17,6 +17,7 @@ router.get("/", function(req, res) {
 
 /** accepts JSON and adds item to items and returns item */
 router.post("/", function(req, res) {
+  // Pass a message to your errors
   if (req.body === undefined) throw new BadRequestError();
 
   const item = req.body

@@ -1,8 +1,11 @@
 "use strict";
+// Would call this sort of thing models
+// DOCSTRINGS!!!!!!!!
 
 const { items } = require("./fakeDb");
 const { NotFoundError } = require("./expressError");
 
+// Find method would be useful
 function getItem(name) {
   for (let item of items) {
     if (item.name === name) {
@@ -12,6 +15,7 @@ function getItem(name) {
   throw new NotFoundError();
 }
 
+// Could use an internal helper with _ (don't forget to put messages in errors)
 function updateItem(name, body) {
   for (let item of items) {
     if (item.name === name) {
@@ -23,6 +27,7 @@ function updateItem(name, body) {
   throw new NotFoundError();
 }
 
+// Find method or filter would be useful
 function deleteItem(name) {
   for (let i = 0; i < items.length; i++) {
     if (items[i].name === name) {

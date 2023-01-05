@@ -35,6 +35,7 @@ describe('GET /items', function() {
  * '{added: item}'
  */
 describe('POST /items', function() {
+  // Should test also if the new data is in the database (make a new request and validate)
   it('Creates an item', async function() {
     const resp = await request(app)
       .post('/items')
@@ -47,9 +48,11 @@ describe('POST /items', function() {
           }
         }
       );
+      // Should probably respond with a 201 to posts
       expect(resp.statusCode).toEqual(200);
   });
 
+  // Test that you're sending back the right error message (don't nibble)
   it('Gives a 400 if no body is sent', async function() {
     const resp = await request(app)
       .post('/items');

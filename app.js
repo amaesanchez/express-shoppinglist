@@ -4,8 +4,6 @@ const express = require("express");
 
 const { NotFoundError } = require("./expressError");
 
-const { items } = require("./fakeDb");
-
 const itemsRoutes = require("./items");
 
 const app = express();
