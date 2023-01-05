@@ -27,7 +27,7 @@ router.post("/", function(req, res) {
 
 /** return single item */
 router.get("/:name", function(req, res) {
-  return res.json({ item : getItem(req.params.name)})
+  return res.json(getItem(req.params.name))
 })
 
 /** accepts JSON, modifies item, and returns item */

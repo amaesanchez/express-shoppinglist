@@ -15,9 +15,9 @@ function getItem(name) {
 function updateItem(name, body) {
   for (let item of items) {
     if (item.name === name) {
-      item.name = body.name;
-      item.price = body.price;
-      return;
+      item.name = body.name || item.name;
+      item.price = body.price || item.price;
+      return item;
     }
   }
   throw new NotFoundError();
